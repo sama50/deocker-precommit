@@ -33,20 +33,6 @@ repos:
     rev: v1.10.1
     hooks:
       - id: mypy
-        exclude: ^(docs/conf.py|scripts/generate_schema.py)$
-        additional_dependencies:
-          - django-stubs  # Add Django type hints
-          - types-PyYAML
-          - tomli >= 0.2.6, < 2.0.0
-          - click >= 8.1.0, != 8.1.4, != 8.1.5
-          - packaging >= 22.0
-          - platformdirs >= 2.1.0
-          - pytest
-          - hypothesis
-          - aiohttp >= 3.7.4
-          - types-commonmark
-          - urllib3
-          - hypothesmith
         args:
           - --strict
           - --disallow-untyped-calls
@@ -55,13 +41,8 @@ repos:
           - --disallow-subclassing-any
           - --ignore-missing-imports
           - --follow-imports=silent
-
-      - id: mypy
-        name: mypy (Python 3.10)
-        files: scripts/generate_schema.py
-        args: [ "--python-version=3.10" ]
         additional_dependencies:
-          - django-stubs
+          - django-stubs  # Add Django type hints if needed
           - types-PyYAML
           - tomli >= 0.2.6, < 2.0.0
           - click >= 8.1.0, != 8.1.4, != 8.1.5
