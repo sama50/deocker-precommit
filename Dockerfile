@@ -4,22 +4,12 @@ USER root
 
 # Set the working directory
 WORKDIR /app
-
+COPY . /app
+COPY .git /app/.git
 # Install pre-commit
 RUN pip install pre-commit
 
-RUN ls -la .
 # Copy the pre-commit configuration file into the container
-COPY .git /app/.git
-#COPY .pre-commit-config-docker.yaml /app/.pre-commit-config.yaml
-
-# Install the pre-commit hooks
 RUN pre-commit install
 
-# Copy the project files into the container
-COPY . /app
-
-# Define the entrypoint to run pre-commit hooks
-#CMD ["sleep", "infinity"]
-
-ENTRYPOINT ["pre-commit", "run", "--all-files"]
+ENTRYPOINT ["pre-commit", "run"]
