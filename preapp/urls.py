@@ -29,4 +29,5 @@ urlpatterns = [
 # jhd
 def my_name_is_sama(name: str, val: int) -> None:
 
-    print("helllo   ....", str(datetime.now()))
+    a = 10 if 10 > 20 else 20
+    print(a)
