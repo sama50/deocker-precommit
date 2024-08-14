@@ -36,6 +36,7 @@ repos:
         exclude: ^(docs/conf.py|scripts/generate_schema.py)$
         args: [ ]
         additional_dependencies: &mypy_deps
+          - django-stubs           # Added for Django type checking
           - types-PyYAML
           - tomli >= 0.2.6, < 2.0.0
           - click >= 8.1.0, != 8.1.4, != 8.1.5
