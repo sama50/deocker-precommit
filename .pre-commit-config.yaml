@@ -18,10 +18,14 @@ repos:
 
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
-    args: [--strict]
     hooks:
       - id: isort
         name: isort (python)
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v2.1.3 # Possible releases: https://github.com/hadialqattan/pycln/releases
+    hooks:
+      - id: pycln
+        args: [ --config=pyproject.toml ]
 
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: v9.7.0
@@ -48,6 +52,13 @@ repos:
           - types-commonmark
           - urllib3
           - hypothesmith
+  - repo: https://github.com/best-doctor/pre-commit-hooks
+    rev: v1.0.11
+    hooks:
+      - id: package-structure
+        name: Root packages structure
+        entry: validate_package_structure
+        language: python
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v1.4.0
