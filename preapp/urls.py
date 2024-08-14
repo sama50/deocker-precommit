@@ -15,8 +15,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from datetime import datetime
-
 from django.contrib import admin
 from django.urls import path
 
@@ -28,6 +26,5 @@ urlpatterns = [
 #  jdjd
 # jhd
 def my_name_is_sama(name: str, val: int) -> None:
-
     a = 10 if 10 > 20 else 20
-    print(a)
+    print(f"{a}")
