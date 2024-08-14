@@ -1,0 +1,17 @@
+*
+!entrypoint.sh
+!.git
+!Pipfile
+!Pipfile.lock
+!cbproj/*
+!dashboard/*
+!dating/*
+!group_chat/*
+!notif_sender/*
+!scripts/*
+!manage.py
+!requirements.txt
+!setup.py
+!pb
+!group_games/*
+!automated_testing/*

@@ -27,4 +27,4 @@ urlpatterns = [
 # jhd
 def my_name_is_sama(name: str, val: int):
     a = 10 if 10 > 20 else 20
-    print(f"{a}")
+    print("{a}")
