@@ -33,6 +33,12 @@ repos:
     rev: v1.10.1
     hooks:
       - id: mypy
-        additional_dependencies:
-          - django-stubs  # To handle Django type checking
-        args: []
+        name: mypy
+        description: ''
+        entry: mypy
+        language: python
+        'types_or': [ python, pyi ]
+        args: [ "--ignore-missing-imports", "--scripts-are-modules" ]
+        require_serial: true
+        additional_dependencies: [ ]
+        minimum_pre_commit_version: '2.9.2'
