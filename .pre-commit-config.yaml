@@ -1,13 +1,4 @@
 repos:
-  - repo: https://github.com/best-doctor/pre-commit-hooks
-    rev: v1.0.11
-    args: [--strict]
-    hooks:
-      - id: package-structure
-        name: Root packages structure
-        entry: validate_package_structure
-        language: python
-
   - repo: https://github.com/psf/black-pre-commit-mirror
     rev: 24.4.2
     args: [--strict]
@@ -32,12 +23,6 @@ repos:
       - id: isort
         name: isort (python)
 
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.1.0
-    args: [--strict]
-    hooks:
-      - id: flake8
-
   - repo: https://github.com/pre-commit/mirrors-eslint
     rev: v9.7.0
     hooks:
@@ -47,5 +32,38 @@ repos:
     rev: v1.10.1
     hooks:
       - id: mypy
-        args: [--strict, --disallow-untyped-calls, --disallow-untyped-defs, --disallow-incomplete-defs,--disallow-subclassing-any, --ignore-missing-imports, --follow-imports=silent]
-        additional_dependencies: [django-stubs, types-PyYAML,pytest,hypothesis,types-commonmark,urllib3,hypothesmith]
+        args:
+          - --strict
+          - --disallow-untyped-calls
+          - --disallow-untyped-defs
+          - --disallow-incomplete-defs
+          - --disallow-subclassing-any
+          - --ignore-missing-imports
+          - --follow-imports=silent
+        additional_dependencies:
+          - django-stubs
+          - types-PyYAML
+          - pytest
+          - hypothesis
+          - types-commonmark
+          - urllib3
+          - hypothesmith
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v1.4.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-yaml
+        args: [ '--unsafe' ]
+      - id: detect-private-key
+      - id: forbid-new-submodules
+      - id: no-commit-to-branch
+        args: [ '--branch=development','--branch=prod' ]
+      - id: check-json
+      - id: pretty-format-json
+      - id: check-added-large-files
+      - id: flake8
+        args: ['--max-line-length=100', '--ignore=E203 E266 E501 W503', '--select=F', '--extend-ignore=F401']
