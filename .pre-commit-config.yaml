@@ -1,4 +1,12 @@
 repos:
+  - repo: https://github.com/best-doctor/pre-commit-hooks
+    rev: v1.0.11
+    hooks:
+      - id: package-structure
+        name: Root packages structure
+        entry: validate_package_structure
+        language: python
+
   - repo: https://github.com/psf/black-pre-commit-mirror
     rev: 24.4.2
     hooks:
@@ -14,10 +22,11 @@ repos:
         files: 'docs/.*\.txt$'
         args: ["--rst-literal-block"]
 
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.13.2
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
     hooks:
       - id: isort
+        name: isort (python)
 
   - repo: https://github.com/PyCQA/flake8
     rev: 7.1.0
@@ -33,24 +42,5 @@ repos:
     rev: v1.10.1
     hooks:
       - id: mypy
-        args:
-          - --strict
-          - --disallow-untyped-calls
-          - --disallow-untyped-defs
-          - --disallow-incomplete-defs
-          - --disallow-subclassing-any
-          - --ignore-missing-imports
-          - --follow-imports=silent
-        additional_dependencies:
-          - django-stubs  # Add Django type hints if needed
-          - types-PyYAML
-          - tomli >= 0.2.6, < 2.0.0
-          - click >= 8.1.0, != 8.1.4, != 8.1.5
-          - packaging >= 22.0
-          - platformdirs >= 2.1.0
-          - pytest
-          - hypothesis
-          - aiohttp >= 3.7.4
-          - types-commonmark
-          - urllib3
-          - hypothesmith
+        args: [--strict, --disallow-untyped-calls, --disallow-untyped-defs, --disallow-incomplete-defs,--disallow-subclassing-any, --ignore-missing-imports, --follow-imports=silent]
+        additional_dependencies: [django-stubs, types-PyYAML,pytest,hypothesis,types-commonmark,urllib3,hypothesmith]
