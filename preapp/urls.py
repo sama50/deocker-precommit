@@ -19,7 +19,10 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path(
+        "admin/test",
+        admin.site.urls,
+    ),
 ]
 
 
@@ -27,4 +30,4 @@ urlpatterns = [
 # jhd
 def my_name_is_sama(name: str, val: int):
     a = 10 if 10 > 20 else 20
-    print("{a}")
+    print(f"{a}")
